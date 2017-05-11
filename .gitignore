@@ -73,7 +73,8 @@ $RECYCLE.BIN/
 # Gradle:
 .idea/**/gradle.xml
 .idea/**/libraries
-
+# Idea
+.idea/
 # Mongo Explorer plugin:
 .idea/**/mongoSettings.xml
 
@@ -98,3 +99,6 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+.idea/markdown-navigator.xml
+.idea/markdown-navigator/
+.idea/vcs.xml
