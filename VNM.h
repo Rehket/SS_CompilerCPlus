@@ -108,24 +108,65 @@ private:
     // Return from the current procedure.
     void ret();
 
+    // Set the top value on the stack to it's negative representation.
     void neg();
 
+    /* Add the top two values on the stack and store it to the first value. the second value is discarded.
+     * STACK [base][][][][stackPointer]
+     * Decriment the stack pointer
+     * STACK [base][][][stackPointer][stackPointer + 1]
+     * Set the stack value at stackPointer to STACK[stackPointer] + STACK[StackPointer + 1]
+     * Remove STACK[stackPointer + 1]
+     *
+     */
     void add();
 
+    // Subtract the top two values of the stack is same manner as addition.
     void sub();
 
+    //Multiply the two values at the top of the stack.
     void mult();
 
+    // Divide the valuse at the top of the stack.
     void div();
 
+    // If the value at the top of stack is odd, set it to 1, else 0.
     void odd();
 
+    // Run mod operation on the top value of the stack in the same manner as addition.
     void mod();
 
+    // Equal Comparison of the top value of the stack in the same manner as addition.
     void equal();
 
+    // NotEqual Comparison of the top value of the stack in the same manner as addition.
     void notEqual();
 
+    void lessThan();
+
+    void lessThanEqualTo();
+
+    void greaterThan();
+
+    void greaterThanEqualTo();
+
+    // Non Arithmetic Ops
+
+    void load();
+
+    void store();
+
+    void call();
+
+    void increment();
+
+    void jump();
+
+    void jumpConditional();
+
+    void out();
+
+    void in();
 
 public:
     VirtualMachine(){

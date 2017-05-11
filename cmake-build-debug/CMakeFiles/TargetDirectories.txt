@@ -1,3 +1,0 @@
-C:/Users/adama/CLionProjects/SS_CompilerCPlus/cmake-build-debug/CMakeFiles/SS_CompilerC__.dir
-C:/Users/adama/CLionProjects/SS_CompilerCPlus/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/adama/CLionProjects/SS_CompilerCPlus/cmake-build-debug/CMakeFiles/rebuild_cache.dir
