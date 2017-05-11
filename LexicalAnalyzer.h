@@ -5,8 +5,6 @@
 #ifndef SS_COMPILERC_LEXICALANALYZER_H
 #define SS_COMPILERC_LEXICALANALYZER_H
 
-#endif //SS_COMPILERC_LEXICALANALYZER_H
-
 #include <stdlib.h>
 #include <string>
 #include <array>
@@ -47,6 +45,9 @@ public:
 
 };
 
+
+
+#endif //SS_COMPILERC_LEXICALANALYZER_H
 
 
 

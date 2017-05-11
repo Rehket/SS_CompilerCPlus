@@ -5,8 +5,6 @@
 #ifndef SS_COMPILERC_VNM_H
 #define SS_COMPILERC_VNM_H
 
-#endif //SS_COMPILERC_VNM_H
-
 #include <vector>
 
 using namespace std;
@@ -19,8 +17,8 @@ typedef enum {LIT = 0, } operationCodes;
 class Instruction{
 private:
     int opCode,
-        lexicographicalLevel,
-        modifier;
+            lexicographicalLevel,
+            modifier;
 public:
 
     //Constructor/Destructor
@@ -97,11 +95,11 @@ class VirtualMachine{
 
 private:
     int maxStackHeight = 2000,
-        maxCodeLength = 500,
-        maxLexicographicalLevel = 3,
-        stackPointer = -1,
-        basePointer = 0,
-        programCounter = 0;
+            maxCodeLength = 500,
+            maxLexicographicalLevel = 3,
+            stackPointer = -1,
+            basePointer = 0,
+            programCounter = 0;
 
     Instruction IRegister;
     VMQueue instructionQueue;
@@ -148,5 +146,9 @@ public:
     void operation();
 
 };
+
+
+#endif //SS_COMPILERC_VNM_H
+
 
 
