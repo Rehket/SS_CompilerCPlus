@@ -3,6 +3,7 @@
 //
 
 #include "HeaderFiles/VNM.h"
+#include <iostream>
 
 void Instruction::setNewInstruction(int _opCode, int _lexLevel, int _modifier) {
 
@@ -73,11 +74,22 @@ void VirtualMachine::execute() {
     switch(IRegister.getOpCode())
     {
         case LIT: operation();
+        case LOD: load();
+        case STO: store();
+        case CAL: call();
+        case INC: increment();
+        case JMP: jump();
+        case JPC: jumpConditional();
+        case OUT: out();
+        case IN: in();
     }
 }
 
 //Return from a function call.
 void VirtualMachine::ret() {
+    if(stackPointer < 0){
+        cout << "Negative Stack Pointer, System exit.";
+    }
     stackPointer = basePointer - 1;
     programCounter = codeStack.at(stackPointer + 3);
     basePointer = codeStack.at(stackPointer + 2);
@@ -205,3 +217,44 @@ void VirtualMachine::load() {
 
 }
 
+void VirtualMachine::store() {
+    int temp = codeStack.at(stackPointer);
+    codeStack.assign(getBase(IRegister.getLexicographicalLevel(), basePointer) + IRegister.getModifier(), temp);
+    stackPointer--;
+    codeStack.erase(codeStack.begin() + stackPointer);
+}
+
+void VirtualMachine::call() {
+    codeStack.assign(stackPointer + 1, getBase(IRegister.getLexicographicalLevel(), basePointer));
+    codeStack.assign(stackPointer + 2, basePointer);
+    codeStack.assign(stackPointer + 3, programCounter);
+    basePointer = stackPointer + 1;
+    programCounter = IRegister.getModifier();
+}
+
+void VirtualMachine::increment(){
+    stackPointer += IRegister.getModifier();
+}
+
+void VirtualMachine::jump() {
+    programCounter = IRegister.getModifier();
+}
+
+void VirtualMachine::jumpConditional() {
+    if(codeStack.at(stackPointer) == 0){
+        programCounter = IRegister.getModifier();
+    }
+    stackPointer--;
+}
+
+void VirtualMachine::out() {
+    cout << codeStack.at(stackPointer) << "\n";
+    stackPointer--;
+}
+
+void VirtualMachine::in() {
+    int temp = 0;
+    stackPointer++;
+    cin >> temp;
+    codeStack.assign(stackPointer, temp);
+}

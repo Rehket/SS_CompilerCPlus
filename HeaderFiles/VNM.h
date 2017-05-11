@@ -1,6 +1,6 @@
-//
-// Created by adama on 5/10/2017.
-//
+/*Created by adama on 5/10/2017.
+ * TODO: Add functionality to read in instructions to the instruction queue from file.
+ * */
 
 #ifndef SS_COMPILERC_VNM_H
 #define SS_COMPILERC_VNM_H
@@ -11,7 +11,7 @@ using namespace std;
 
 typedef enum {RET = 0, NEG, ADD, SUB, MUL, DIV, ODD, MOD, EQL, NEQ, LSS, LEQ, GTR, GEQ} operationModifiers;
 
-typedef enum {LIT = 0, } operationCodes;
+typedef enum {LIT = 0, LOD, STO, CAL, INC, JMP, JPC, OUT, IN} operationCodes;
 
 //Instruction Class
 class Instruction{
