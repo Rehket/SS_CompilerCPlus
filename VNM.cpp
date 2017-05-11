@@ -2,7 +2,7 @@
 // Created by adama on 5/10/2017.
 //
 
-#include "VNM.h"
+#include "HeaderFiles/VNM.h"
 
 void Instruction::setNewInstruction(int _opCode, int _lexLevel, int _modifier) {
 
